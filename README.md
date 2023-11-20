@@ -1,5 +1,5 @@
-# For converting interchunk dependencies to intrachunk dependencies in SSF
-# Includes 3 steps in sequential manner
+# Conversion of interchunk dependencies to intrachunk dependencies in SSF
+# Run 3 programs in sequential manner
 - Adding posn and name features
   * works both at file and folder level  python add_posn_and_name_features.py --input Sample-Input-Inter --output Sample-Input-With-Posn-Name
 - Computing Head
