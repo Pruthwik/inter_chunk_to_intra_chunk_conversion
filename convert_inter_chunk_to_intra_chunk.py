@@ -36,10 +36,12 @@ def create_key_val_pairs_from_morph(morph):
 
 def find_intra_chunk_deprel_using_pos(parent_pos, child_pos):
 	"""Find intra chunk deprel using POS."""
-	if child_pos == 'PSP' and search('N\_*|PR\_*|V\_*', parent_pos):
+	if child_pos in ['PSP', 'N_NST'] and search('N\_*|PR\_*|V\_*', parent_pos):
 		dep_rel = 'lwg__psp'
 	elif child_pos == 'V_VAUX' and search('V\_*', parent_pos):
 		dep_rel = 'lwg__vaux'
+	elif child_pos in ['N_NN', 'N_NNP'] and parent_pos in ['N_NN', 'N_NNP']:
+		dep_rel = 'pof__cn'
 	elif child_pos == 'RP_RPD' and parent_pos != 'RP\_RPD':
 		dep_rel = 'lwg__rp'
 	elif child_pos == 'RP_NEG':
@@ -54,6 +56,8 @@ def find_intra_chunk_deprel_using_pos(parent_pos, child_pos):
 		dep_rel = 'jjmod__intf'
 	elif child_pos == 'RP_NEG':
 		dep_rel = 'lwg__neg'
+	elif child_pos == 'RP_INJ' and parent_pos != 'RP_INJ':
+		dep_rel = 'lwg__uh'
 	elif search('DM\_*', child_pos) and search('PR\_*|N\_*', parent_pos):
 		dep_rel = 'nmod__adj'
 	elif child_pos == 'JJ' and search('PR\_*|N\_*', parent_pos):
@@ -99,7 +103,6 @@ def convert_into_inter_chunk_for_file(lines):
 		line = line.strip()
 		if line:
 			if "<Sentence" in line:
-				print(line)
 				updated_lines.append(line)
 			elif "</Sentence>" in line:
 				if prob_sent:
@@ -118,6 +121,10 @@ def convert_into_inter_chunk_for_file(lines):
 							if chunk_token_info[4] == 'child':
 								child_pos = chunk_token_info[1]
 								drel = find_intra_chunk_deprel_using_pos(parent_pos, child_pos)
+								child_token = chunk_token_info[0]
+								if drel == 'mod':
+									if search('^' + child_token + '\d+$', head_token_name):
+										drel = 'pof__redup'
 								if 'vaux' in drel and 'vaux' in prev_drel:
 									drel = drel + '_cont'
 								elif 'psp' in drel and 'psp' in prev_drel:
@@ -144,7 +151,6 @@ def convert_into_inter_chunk_for_file(lines):
 				except Exception:
 					for i in range(len(updated_lines) - 1, -1, -1):
 						if search('^<Sentence id=', updated_lines[i]):
-							print(i)
 							break
 					for j in range(len(updated_lines) - i):
 						updated_lines.pop()

@@ -67,6 +67,7 @@ def add_posn_name_features_in_sentences(ssf_sentences):
 				updated_lines.append('\t'.join([addr, braces, chunk_tag, morph_string]))
 			elif re.search('^\d+\.\d+\t', line):
 				addr, token, pos_tag, morph = line.split('\t')
+				pos_tag = pos_tag.replace('__', '_')
 				morph_dict = create_key_val_pairs_from_morph(morph[4: -1])
 				if 'name' in morph_dict:
 					del morph_dict['name']

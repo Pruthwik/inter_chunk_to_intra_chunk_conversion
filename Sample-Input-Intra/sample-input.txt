@@ -159,7 +159,7 @@
 <Sentence id='10'>
 1	किले	N_NN	<fs af='किला,n,m,sg,3,o,0,0' name='किले' posn='10' drel='k7p:देखे' chunkType='head:NP' chunkId='NP'>
 2	के	PSP	<fs af='के,psp,,,,,,' name='के' posn='20' drel='lwg__psp:किले' chunkType='child:NP'>
-3	अंदर	N_NST	<fs af='अंदर,nst,m,sg,3,d,,' name='अंदर' posn='30' drel='mod:किले' chunkType='child:NP'>
+3	अंदर	N_NST	<fs af='अंदर,nst,m,sg,3,d,,' name='अंदर' posn='30' drel='lwg__psp_cont:किले' chunkType='child:NP'>
 4	महल	N_NN	<fs af='महल,n,m,sg,3,o,0,0' name='महल' posn='40' drel='ccof:और' chunkType='head:NP2' chunkId='NP2'>
 5	,	RD_PUNC	<fs af='COMMA,punc,,,,,,' name=',' posn='50' drel='rsym:महल' chunkType='child:NP2'>
 6	छतरियाँ	N_NN	<fs af='छतरी,n,f,pl,3,o,0,0' name='छतरियाँ' posn='60' drel='ccof:और' chunkType='head:NP3' chunkId='NP3'>
@@ -339,7 +339,7 @@
 2	की	PSP	<fs af='का,psp,f,sg,,o,,' name='की' posn='20' drel='lwg__psp:हमीर' chunkType='child:NP'>
 3	मौत	N_NN	<fs af='मौत,n,f,sg,3,o,0,0' name='मौत' posn='30' drel='k7t:हो' chunkType='head:NP2' chunkId='NP2'>
 4	के	PSP	<fs af='के,psp,,,,,,' name='के' posn='40' drel='lwg__psp:मौत' chunkType='child:NP2'>
-5	बाद	N_NST	<fs af='बाद,nst,m,sg,3,d,,' name='बाद' posn='50' drel='mod:मौत' chunkType='child:NP2'>
+5	बाद	N_NST	<fs af='बाद,nst,m,sg,3,d,,' name='बाद' posn='50' drel='lwg__psp_cont:मौत' chunkType='child:NP2'>
 6	चौहानों	N_NN	<fs af='चौहान,n,m,pl,3,o,0,0' name='चौहानों' posn='60' drel='r6:राज' chunkType='head:NP3' chunkId='NP3'>
 7	का	PSP	<fs af='का,psp,m,sg,,d,,' name='का' posn='70' drel='lwg__psp:चौहानों' chunkType='child:NP3'>
 8	राज	N_NN	<fs af='राज,n,m,sg,3,d,0,0' name='राज' posn='80' drel='k1:हो' chunkType='head:NP4' chunkId='NP4'>
@@ -420,7 +420,7 @@
 1	उनकी	PR_PRP	<fs af='वह,pn,f,sg,3h,o,का,kA' name='उनकी' posn='10' drel='r6:पराजय' chunkType='head:NP' chunkId='NP'>
 2	पराजय	N_NN	<fs af='पराजय,n,f,sg,3,o,0,0' name='पराजय' posn='20' drel='k7t:हो' chunkType='head:NP2' chunkId='NP2'>
 3	के	PSP	<fs af='के,psp,,,,,,' name='के' posn='30' drel='lwg__psp:पराजय' chunkType='child:NP2'>
-4	बाद	N_NST	<fs af='बाद,nst,m,sg,3,d,,' name='बाद' posn='40' drel='mod:पराजय' chunkType='child:NP2'>
+4	बाद	N_NST	<fs af='बाद,nst,m,sg,3,d,,' name='बाद' posn='40' drel='lwg__psp_cont:पराजय' chunkType='child:NP2'>
 5	यह	DM_DMD	<fs af='यह,pn,any,sg,3,d,,' name='यह' posn='50' drel='nmod__adj:किला' chunkType='child:NP3'>
 6	किला	N_NN	<fs af='किला,n,m,sg,3,d,0,0' name='किला' posn='60' drel='k1:हो' chunkType='head:NP3' chunkId='NP3'>
 7	मुगलों	N_NN	<fs af='मुगल,n,m,pl,3,o,0,0' name='मुगलों' posn='70' drel='k7a:हो' chunkType='head:NP4' chunkId='NP4'>
